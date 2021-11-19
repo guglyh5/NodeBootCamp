@@ -28,8 +28,8 @@ exports.createBootcamp= (req, res, next) =>{
 };
 
 
-// @desc    Get Single Bootcamp
-// @route   Get /api/v1/bootcamps
+// @desc    Update Bootcamp
+// @route   PUT /api/v1/bootcamps/:id
 // @access  Public 
 exports.UpdateBootcamp= (req, res, next) =>{
     res
@@ -37,8 +37,8 @@ exports.UpdateBootcamp= (req, res, next) =>{
         .json({success: true, msg: `Update bootcamp ${req.params.id}`});
 };
 
-// @desc    Get Single Bootcamp
-// @route   Get /api/v1/bootcamps
+// @desc    Delete Bootcamp
+// @route   DELETE /api/v1/bootcamps/:id
 // @access  Public 
 exports.DeleteBootcamp= (req, res, next) =>{
     res
