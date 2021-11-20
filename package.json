@@ -16,5 +16,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guglyh5/NodeBootCamp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guglyh5/NodeBootCamp/issues"
+  },
+  "homepage": "https://github.com/guglyh5/NodeBootCamp#readme"
 }
