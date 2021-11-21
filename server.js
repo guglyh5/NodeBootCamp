@@ -1,11 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-
+const connectDB = require('./config/db');
 //Route files
 const bootcamps = require('./routes/bootcamps');
 
-dotenv.config({path: './config/config.env'})  //Example: 'KEY=value' becomes { parsed: { KEY: 'value' } }
+dotenv.config({path: './config/config.env'}); //Example: 'KEY=value' becomes { parsed: { KEY: 'value' } }
+
+
+//Connecting to database
+connectDB();
 
 const app = express();
 
