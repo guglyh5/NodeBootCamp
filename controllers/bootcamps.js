@@ -22,10 +22,7 @@ exports.getBootcamps = (req, res, next) =>{
 // @access  Public 
 exports.createBootcamp= async (req, res, next) =>{
     const bootcamp = await Bootcamp.create(req.body);
-    console.log(req.body);
-    res
-        .status(201)
-        .json({success: true, data: bootcamp});
+    res.status(201).json({success: true, data: bootcamp});
 };
 
 
