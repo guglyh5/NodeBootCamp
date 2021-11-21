@@ -108,6 +108,3 @@ const BootcampSchema = new mongoose.Schema({
       toObject: { virtuals: true }
     }
   );
-
-
-});
