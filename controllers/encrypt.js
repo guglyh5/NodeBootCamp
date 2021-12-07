@@ -4,10 +4,12 @@ const iv = 'jm8lgqa3j1d0ajus';
 
 exports.encryptData = async (req, res, next) =>{
     try{
-    const bootcamp = await Bootcamp.create(req.body);
-    res.status(201).json({success: true, data: bootcamp});
+        const stringy = JSON.stringify(req.body);
+    const encrypt2 = await encrypt(stringy,key,iv);
+        console.log(encrypt2);
+    res.status(200).json({success: true, data: encrypt2});
     }
     catch(err){
-        res.status(400).json({success: false});
+        res.status(400).json({success: false,msg: "It's this one",data: err.message});
     }
 };
