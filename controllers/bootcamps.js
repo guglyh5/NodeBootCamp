@@ -1,4 +1,5 @@
 const Bootcamp = require('../models/Bootcamp');
+
 // @desc    Get Single Bootcamp
 // @route   GET /api/v1/bootcamps/:id
 // @access  Public 
@@ -18,9 +19,10 @@ exports.getBootcamp = async (req, res, next) =>{
     }
     catch(err)
     {
-        res
-        .status(400)
-        .json({success: false});
+        // res
+        // .status(400)
+        // .json({success: false});
+        next(err);
     }
     
 };

@@ -20,4 +20,8 @@ router
     .put(UpdateBootcamp)
     .delete(DeleteBootcamp)
 
+// router
+//     .route('/encrypt')
+//     .post(encryptData)
+
 module.exports = router;
