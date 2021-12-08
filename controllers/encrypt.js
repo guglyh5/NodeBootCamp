@@ -10,6 +10,6 @@ exports.encryptData = async (req, res, next) =>{
     res.status(200).json({success: true, data: encrypt2});
     }
     catch(err){
-        res.status(400).json({success: false,msg: "It's this one",data: err.message});
+        res.status(400).json({success: false,data: err.message});
     }
 };
