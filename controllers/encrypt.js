@@ -6,7 +6,7 @@ exports.encryptData = async (req, res, next) =>{
     try{
         const stringy = JSON.stringify(req.body);
     const encrypt2 = await encrypt(stringy,key,iv);
-        console.log(encrypt2);
+        
     res.status(200).json({success: true, data: encrypt2});
     }
     catch(err){
