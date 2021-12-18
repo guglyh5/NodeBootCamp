@@ -1,3 +1,4 @@
+const ErrorResponse = require('../utils/errorResponse');
 const encrypt = require('../middleware/encrypt');
 const key = 'bmx3aXVoMTJrMzFram5rbGR1Z283MTI=';
 const iv = 'jm8lgqa3j1d0ajus';
@@ -10,6 +11,7 @@ exports.encryptData = async (req, res, next) =>{
     res.status(200).json({success: true, data: encrypt2});
     }
     catch(err){
-        res.status(400).json({success: false,data: err.message});
+        //res.status(400).json({success: false,data: err.message});
+        next(new ErrorResponse(`Invalid Request`,400));
     }
 };

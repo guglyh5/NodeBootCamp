@@ -1,3 +1,4 @@
+const ErrorResponse = require('../utils/errorResponse');
 const Bootcamp = require('../models/Bootcamp');
 
 // @desc    Get Single Bootcamp
@@ -8,9 +9,7 @@ exports.getBootcamp = async (req, res, next) =>{
         const bootcamp = await Bootcamp.findById(req.params.id);
         if(!bootcamp)
         {
-        return res
-            .status(404)
-            .json({success: false});
+        return next(new ErrorResponse(`Bootcamp not found with ${req.params.id})`,404));
         }
         res
         .status(200)
@@ -22,7 +21,7 @@ exports.getBootcamp = async (req, res, next) =>{
         // res
         // .status(400)
         // .json({success: false});
-        next(err);
+        next(new ErrorResponse(`Bootcamp not found with ${req.params.id})`,404));
     }
     
 };
@@ -41,7 +40,8 @@ exports.getBootcamps = async (req, res, next) =>{
     }
     catch(err)
     {
-        res.status(400).json({success:false, msg: 'Failure: Invalid request'});
+        //res.status(400).json({success:false, msg: 'Failure: Invalid request'});
+        next(new ErrorResponse(`No Bootcamp found`,404));
     }
     
 };
