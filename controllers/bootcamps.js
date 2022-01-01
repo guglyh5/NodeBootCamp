@@ -18,10 +18,7 @@ exports.getBootcamp = async (req, res, next) =>{
     }
     catch(err)
     {
-        // res
-        // .status(400)
-        // .json({success: false});
-        next(new ErrorResponse(`Bootcamp not found with ${req.params.id})`,404));
+        next(err);
     }
     
 };
