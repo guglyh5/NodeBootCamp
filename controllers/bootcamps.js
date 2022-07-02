@@ -23,12 +23,17 @@ exports.getBootcamp = asyncHandler(async (req, res, next) =>{
 // @route   GET /api/v1/bootcamps
 // @access  Public 
 exports.getBootcamps = asyncHandler(async (req, res, next) =>{
-    
-        const bootcamps = await Bootcamp.find();
-        const count = await Bootcamp.count();
+        console.log(req.query);
+        let query;
+        let queryStr = JSON.stringify(req.query);
+        queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+        console.log(queryStr);
+        query = Bootcamp.find(JSON.parse(queryStr));
+        const bootcamps = await query;
+        // const count = await Bootcamp.count();
         res
         .status(200)
-        .json({success: true, count: count, data: bootcamps});
+        .json({success: true, count: bootcamps.length, data: bootcamps});
     
 });
 
